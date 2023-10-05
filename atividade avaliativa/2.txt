@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main() {
+    double chicoAltura = 150;   
+    double zeAltura = 110;      
+    int anos = 0;
+
+    while (zeAltura <= chicoAltura) {
+        chicoAltura += 2;   
+        zeAltura += 3;      
+        anos++;
+    }
+
+    printf("É necessário %d anos para que o Zé fique mais alto que o Chico.\n", anos);
+}

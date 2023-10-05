@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int numCidades = 200; // Define o número total de cidades
+    float maiorindice = 0, menorIndice = 9999; 
+    char cidadeMaior[50], cidadeMenor[50];
+    float somaVeiculos = 0, somaAcidentesRS = 0; 
+    
+
+    for (int i = 0; i < numCidades; i++) {
+        int codigoCidade;
+        char estado[3]; 
+        float numVeiculos, numAcidentes; 
+        
+
+        printf("Digite o código da cidade: ");
+        scanf("%d", &codigoCidade);
+        
+        printf("Digite o estado (ex: RS): ");
+        scanf("%s", estado);
+        
+        printf("Digite o número de veículos em 1992: ");
+        scanf("%f", &numVeiculos);
+        
+        printf("Digite o número de acidentes com vítimas em 1992: ");
+        scanf("%f", &numAcidentes);
+      
+        float indice = numAcidentes / numVeiculos;
+        
+        if (indice > maiorIndice) {
+            maiorIndice = indice;
+            strcpy(cidadeMaior, estado); // Salva o estado da cidade com o maior índice
+        }
+        if (indice < menorIndice) {
+            menorIndice = indice;
+            strcpy(cidadeMenor, estado); // Salva o estado da cidade com o menor índice
+        }
+        
+        somaVeiculos += numVeiculos; // Soma o número de veículos para calcular a média
+        
+        if (strcmp(estado, "RS") == 0) {
+            somaAcidentesRS + = numAcidentes; // Soma os acidentes para calcular a média no RS
+        }
+    }
+    
+    float mediaVeiculos = somaVeiculos / numCidades; // Calcula a média de veículos
+    float mediaAcidentesRS = somaAcidentesRS / numCidades; // Calcula a média de acidentes no RS
+    printf("Cidade com o maior índice de acidentes: %s\n", cidadeMaior);
+    printf("Cidade com o menor índice de acidentes: %s\n", cidadeMenor);
+    printf("Média de veículos nas cidades brasileiras: %.2f\n", mediaVeiculos);
+    printf("Média de acidentes com vítimas no Rio Grande do Sul: %.2f\n", mediaAcidentesRS);
+}
+obs: string e strcmp é uma das coisas mais úteis que aprendi.

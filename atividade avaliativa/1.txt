@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+
+int main() {
+    double x, resultado;
+
+
+    printf("Digite o valor de x: ");
+    scanf("%lf", &x);
+    if (x * x - 16.0 >= 0) {
+        resultado = (5 * x + 3) / sqrt(x * x - 16.0);
+        printf("O valor de f(x) é: %.6lf\n", resultado);
+    } else {
+        printf("O denominador é zero ou negativo, o valor de x não é válido.\n");
+    }
+
+}

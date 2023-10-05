@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main() {
+    double salario, mediaSalario = 0, mediaFilhos = 0, maiorSalario = 0;
+    int numPessoas = 0, numPessoasAte100 = 0, numFilhos, totalFilhos = 0;
+
+    do {
+        printf("Digite o salário (ou um valor negativo para encerrar): ");
+        scanf("%lf", &salario);
+
+        if (salario < 0) {
+            break;
+        }
+
+        numPessoas++;
+        mediaSalario += salario;
+
+        if (salario <= 100) {
+            numPessoasAte100++;
+        }
+
+        printf("Digite o número de filhos: ");
+        scanf("%d", &numFilhos);
+        totalFilhos += numFilhos;
+
+        if (salario > maiorSalario) {
+            maiorSalario = salario;
+        }
+    } while (1);
+
+    if (numPessoas > 0) {
+        mediaSalario /= numPessoas;
+        mediaFilhos = (double)totalFilhos / numPessoas;
+        double percentualAte100 = (double)numPessoasAte100 / numPessoas * 100;
+
+        printf("Média do salário da população: %.2lf\n", mediaSalario);
+        printf("Média do número de filhos: %.2lf\n", mediaFilhos);
+        printf("Maior salário: %.2lf\n", maiorSalario);
+        printf("Percentu de pessoas com salário até R$100,00: %.2lf%%\n", percentualAte100);
+    } else {
+        printf("Nenhum dado inserido.\n");
+    }
+}
+obs: tive muita dificuldade ness questão, então não sei se ela está correta.
